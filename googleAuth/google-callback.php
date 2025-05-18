@@ -1,11 +1,14 @@
 <?php
 
+session_start();
+
 require_once __DIR__ . '/../vendor/autoload.php';
+
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
-session_start();
+
 
 $client = new Google_Client();
 $client->setClientId($_ENV['GOOGLE_CLIENT_ID']);
@@ -22,20 +25,21 @@ if (isset($_GET['code'])) {
         $userInfo = $oauth2->userinfo->get();
 
         $_SESSION['user_type'] = 'google';
-        $_SESSION['user_name'] = $userInfo->name;
-        $_SESSION['user_email'] = $userInfo->email;
+        $_SESSION['name'] = $userInfo->name;
+        $_SESSION['email'] = $userInfo->email;
         $_SESSION['user_image'] = $userInfo->picture;
 
-        $_SESSION['success'] = "Login with Google";
+        $_SESSION['success'] = "Googe login Successful";
+
         header("Location: ../user/user_page.php");
         exit();
     } else {
         $_SESSION['error'] = "Login with Google failed";
-        header("Location: ../index.php");
+        header("Location: ../auth/index.php");
         exit();
     }
 } else {
     $_SESSION['error'] = "Invalid login";
-    header("Location: ../index.php");
+    header("Location: ../auth/index.php");
     exit();
 }
