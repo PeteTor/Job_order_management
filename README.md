@@ -54,7 +54,7 @@ A web-based application for managing job orders with user authentication, admin 
 
 - Download the ZIP or clone the repository:
   ```bash
-  git clone https://github.com/your-username/your-repo.git
+  https://github.com/PeteTor/Job_order_management.git
   ```
 - Move the project folder into your XAMPP `htdocs` directory:
   ```
