@@ -42,51 +42,87 @@ A widely-used open-source web server software. It serves your PHP applications t
 
 ## Installation 
 
-- Clone or download zip file save in htdocs directory in your xammp folder in local C
-- Install dependencies - 
-  <a href="#">Composer Install</a>
+# 📦 Job Order Management System
 
-- Create .env file<br> 
-<a href="#">
-SITE_KEY=[your_Site_key] <br>
-SECRET_KEY=[your_secret_key] <br>
-GOOGLE_CLIENT_ID=[your_client_id] <br>
-GOOGLE_CLIENT_SECRET=[your_google_secret_key] <br>
-GOOGLE_REDIRECT=[google_redirect] <br>
-</a>
+A web-based application for managing job orders with user authentication, admin controls, and Google OAuth.
 
-### Create Sql databse
-- User table
-<a href="#">
-CREATE TABLE `users` ( <br>
-  `id` int(11) NOT NULL, <br>
-  `name` varchar(255) NOT NULL, <br>
-  `email` varchar(255) NOT NULL, <br>
-  `password` varchar(255) NOT NULL, <br>
-  `role` enum('user','admin') NOT NULL, <br>
-  `reset_code` bigint(20) DEFAULT NULL <br>
-) 
-</a>
-- Job-order-table
-<a href="#">
-CREATE TABLE `job_orders` ( <br>
-  `id` int(11) NOT NULL, <br>
-  `user_id` int(11) NOT NULL, <br>
-  `title` varchar(255) NOT NULL, <br>
-  `description` text DEFAULT NULL, <br>
-  `service_type` enum('MACHINING','FABRICATION') NOT NULL, <br>
-  `labor_cost` varchar(255) DEFAULT NULL, <br>
-  `material_cost` varchar(255) DEFAULT NULL, <br>
-  `urgency` enum('LOW','HIGH','URGENT') NOT NULL, <br>
-  `status` enum('pending','approved','rejected','in-progress','on-hold','canceled','complete') DEFAULT 'pending', <br>
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() <br>
-) 
-</a>
+---
 
-- Open your XAMPP Control Panel and start Apache and MySQL.
-- then Type localhost/[folder_location]
-- Sign up then Login
+## 🚀 Getting Started
 
+### 📁 1. Clone or Download
 
+- Download the ZIP or clone the repository:
+  ```bash
+  git clone https://github.com/your-username/your-repo.git
+  ```
+- Move the project folder into your XAMPP `htdocs` directory:
+  ```
+  C:/xampp/htdocs/
+  ```
 
+### ⚙️ 2. Install Dependencies
 
+Ensure [Composer](https://getcomposer.org/) is installed, then run:
+
+```bash
+composer install
+```
+
+### 🔐 3. Create `.env` File
+
+In the root of your project, create a `.env` file and add the following:
+
+```env
+SITE_KEY=your_site_key
+SECRET_KEY=your_secret_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_secret_key
+GOOGLE_REDIRECT=http://localhost/[your-project]/google-auth/google-callback.php
+```
+
+### 🗄️ 4. Create MySQL Database
+
+Create a database (e.g., `booking_system`) and use the SQL below to set up tables:
+
+#### 🧍 users Table
+
+```sql
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` enum('user','admin') NOT NULL,
+  `reset_code` bigint(20) DEFAULT NULL
+);
+```
+
+#### 📋 job_orders Table
+
+```sql
+CREATE TABLE `job_orders` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `service_type` enum('MACHINING','FABRICATION') NOT NULL,
+  `labor_cost` varchar(255) DEFAULT NULL,
+  `material_cost` varchar(255) DEFAULT NULL,
+  `urgency` enum('LOW','HIGH','URGENT') NOT NULL,
+  `status` enum('pending','approved','rejected','in-progress','on-hold','canceled','complete') DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+);
+```
+
+### ▶️ 5. Run the App
+
+- Open **XAMPP Control Panel**.
+- Start **Apache** and **MySQL**.
+- In your browser, go to:
+
+```txt
+http://localhost/[your-folder-name]
+```
+
+- Register a new account and log in to start using the system.
