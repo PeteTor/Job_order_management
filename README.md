@@ -4,21 +4,20 @@ Welcome to the **Job Order Management System**, a streamlined solution designed 
 
 ## 🛠️ Technology Stack
 
-### 🐘 PHP
-A popular server-side scripting language used to build dynamic web applications. It runs on the server and generates HTML to send to the browser.
-
-### 🐬 MySQL
-An open-source relational database management system used to store and manage application data efficiently.
-
-### 🌐 Front-End Technologies
+### Frontend
 
 - **HTML**: The standard language for creating the structure of web pages.  
 - **CSS**: Used to style and design HTML elements with colors, layouts, fonts, etc.  
 - **JavaScript**: A programming language that runs in the browser to make web pages interactive.  
 - **Bootstrap**: A front-end CSS framework that makes it easy to design responsive and mobile-first websites quickly.
 
-### 🌍 Apache
-A widely-used open-source web server software. It serves your PHP applications to users by processing HTTP requests and delivering web content.
+### Backend
+
+- **php**: A server-side scripting language used to build dynamic web applications.
+- **mysql**: Stores all application data, such as user accounts, job orders, inventory, etc.
+- **xampp**: Ideal for running and testing your PHP-MySQL app on localhost before deployment.
+- **Composer**: Useful for installing and managing libraries/packages
+
 
 ## 🚀 Features
 
@@ -41,20 +40,11 @@ A widely-used open-source web server software. It serves your PHP applications t
 - Download completed job orders as PDF
 
 ## Installation 
-
-# 📦 Job Order Management System
-
-A web-based application for managing job orders with user authentication, admin controls, and Google OAuth.
-
----
-
-## 🚀 Getting Started
-
 ### 📁 1. Clone or Download
 
 - Download the ZIP or clone the repository:
   ```bash
-  https://github.com/PeteTor/Job_order_management.git
+  git clone https://github.com/your-username/your-repo.git
   ```
 - Move the project folder into your XAMPP `htdocs` directory:
   ```
@@ -63,10 +53,11 @@ A web-based application for managing job orders with user authentication, admin 
 
 ### ⚙️ 2. Install Dependencies
 
-Ensure [Composer](https://getcomposer.org/) is installed, then run:
-
 ```bash
-composer install
+PHP dotenv - For storing credentials and secret keys
+PHPMailer - For sending email notifications and confirmations
+Google API Client - For Google authentication and API integration
+mPDF - For generating PDF documents and reports
 ```
 
 ### 🔐 3. Create `.env` File
@@ -115,7 +106,7 @@ CREATE TABLE `job_orders` (
 );
 ```
 
-### ▶️ 5. Run the App
+### ▶️ 5. Run the systen
 
 - Open **XAMPP Control Panel**.
 - Start **Apache** and **MySQL**.
@@ -125,4 +116,64 @@ CREATE TABLE `job_orders` (
 http://localhost/[your-folder-name]
 ```
 
-- Register a new account and log in to start using the system.
+## DataBase Schema
+
+The system uses MySQL/MariaDB with the following key tables:
+
+## 👤 Users and Authentication
+users – Stores user accounts and credentials
+
+Fields: id, name, email, password, role, reset_code
+
+Supports roles such as user and admin
+
+## 🛠️ Job Order Management
+job_orders – Contains job order submissions from users
+
+Fields: id, user_id, title, description, service_type, labor_cost, material_cost, urgency, status, created_at
+
+Tracks job order lifecycle with statuses like pending, in-progress, complete, etc.
+
+Categorizes service types as MACHINING or FABRICATION
+
+##
+
+
+# 🧍 ScreenShots
+
+ ![get Started](screenshots/1.png)
+ _Get Started_
+
+ 
+ ![Login](screenshots/2.png)
+ _Login Page_
+
+ ![register](screenshots/3.png)
+ _Register Page_
+ 
+ ![forgot](screenshots/4.png)
+ _forgot Password page_
+ 
+ ![admin](screenshots/5.png)
+ _admin dashboard_
+
+  ![admin](screenshots/7.png)
+ _admin inprogress_
+
+ ![admin](screenshots/8.png)
+ _admin cancel_
+
+ ![admin](screenshots/9.png)
+ _admin cancel_
+
+  ![admin](screenshots/10.png)
+ _admin users_
+
+ ![admin](screenshots/12.png)
+ _admin reports_
+
+ ![User](screenshots/6.png)
+ _User Request form_
+
+  ![Confirmation](screenshots/11.png)
+ _User Request form_
