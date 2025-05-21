@@ -43,17 +43,21 @@ A widely-used open-source web server software. It serves your PHP applications t
 ## Installation 
 
 - Clone or download zip file save in htdocs directory in your xammp folder in local C
-- Install dependencies - (Composer Install)
+- Install dependencies - 
+  <a href="#">Composer Install</a>
 
-- Create .env file 
+- Create .env file<br> 
+<a href="#">
 SITE_KEY=[your_Site_key] <br>
 SECRET_KEY=[your_secret_key] <br>
 GOOGLE_CLIENT_ID=[your_client_id] <br>
 GOOGLE_CLIENT_SECRET=[your_google_secret_key] <br>
 GOOGLE_REDIRECT=[google_redirect] <br>
+</a>
 
 ### Create Sql databse
 - User table
+<a href="#">
 CREATE TABLE `users` ( <br>
   `id` int(11) NOT NULL, <br>
   `name` varchar(255) NOT NULL, <br>
@@ -62,7 +66,9 @@ CREATE TABLE `users` ( <br>
   `role` enum('user','admin') NOT NULL, <br>
   `reset_code` bigint(20) DEFAULT NULL <br>
 ) 
+</a>
 - Job-order-table
+<a href="#">
 CREATE TABLE `job_orders` ( <br>
   `id` int(11) NOT NULL, <br>
   `user_id` int(11) NOT NULL, <br>
@@ -75,6 +81,7 @@ CREATE TABLE `job_orders` ( <br>
   `status` enum('pending','approved','rejected','in-progress','on-hold','canceled','complete') DEFAULT 'pending', <br>
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() <br>
 ) 
+</a>
 
 - Open your XAMPP Control Panel and start Apache and MySQL.
 - then Type localhost/[folder_location]
