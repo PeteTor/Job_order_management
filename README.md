@@ -43,9 +43,6 @@ Welcome to the **Job Order Management System**, a streamlined solution designed 
 ### 📁 1. Clone or Download
 
 - Download the ZIP or clone the repository:
-  ```bash
-  git clone https://github.com/your-username/your-repo.git
-  ```
 - Move the project folder into your XAMPP `htdocs` directory:
   ```
   C:/xampp/htdocs/
